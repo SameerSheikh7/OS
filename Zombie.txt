@@ -1,0 +1,22 @@
+//Zombie
+
+#include<stdio.h>
+#include<unistd.h>
+int main()
+{
+    pid_t p;
+    p=fork();
+    
+    if(p==0)//Child
+    {
+       printf("Child having id %d\n",getpid());
+       printf("My Parent having id %d\n",getppid());
+    }
+    
+    else //Parent
+    {
+        sleep(5);
+        printf("Parent having id %d\n",getpid());
+        printf("My Child having id %d\n",p);
+    }
+}
